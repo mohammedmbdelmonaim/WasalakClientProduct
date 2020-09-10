@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "11212316150",
+    "firebase_url": "https://wasalak-product.firebaseio.com",
+    "project_id": "wasalak-product",
+    "storage_bucket": "wasalak-product.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:11212316150:android:7b8bb4c9f8a39fe79abbd7",
+        "android_client_info": {
+          "package_name": "com.unicom.wasalakclientproduct"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "11212316150-6pp1t5nei9ca7j31t0omqeegc9e3cvgk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.unicom.wasalakclientproduct",
+            "certificate_hash": "4333b5743217303b7683d6b1eee0621dc8fd116b"
+          }
+        },
+        {
+          "client_id": "11212316150-bpb1qp5dnk3hbjsfutli3kffalbnuv65.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDJ02yrZCdIDUxd6M_XrgryD8BpBwIGM24"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "11212316150-bpb1qp5dnk3hbjsfutli3kffalbnuv65.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

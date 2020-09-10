@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/user_nav_graph.xml"
+    app:startDestination="@id/myAccountFragment">
+
+    <fragment
+        android:id="@+id/myAccountFragment"
+        android:name="com.unicom.wasalakclientproduct.ui.user.MyAccountFragment"
+        android:label="MyAccountFragment" >
+
+        <action
+            android:id="@+id/action_myAccountFragment_to_changePasswordFragment"
+            app:destination="@id/changePasswordFragment" />
+        <action
+            android:id="@+id/action_myAccountFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/changePasswordFragment"
+        android:name="com.unicom.wasalakclientproduct.ui.user.ChangePasswordFragment"
+        android:label="ChangePasswordFragment" />
+    <fragment
+        android:id="@+id/notificationFragment"
+        android:name="com.unicom.wasalakclientproduct.ui.user.NotificationFragment"
+        android:label="NotificationFragment" />
+    <fragment
+        android:id="@+id/orderHistoryFragment"
+        android:name="com.unicom.wasalakclientproduct.ui.user.OrderHistoryFragment"
+        android:label="OrderHistoryFragment" />
+    <fragment
+        android:id="@+id/requestsFragment"
+        android:name="com.unicom.wasalakclientproduct.ui.user.RequestsFragment"
+        android:label="RequestsFragment" />
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.unicom.wasalakclientproduct.ui.user.ProfileFragment"
+        android:label="ProfileFragment" >
+
+        <argument
+            android:name="profileAccount"
+            app:argType="com.unicom.wasalakclientproduct.model.user.AccountModel$Result"
+            app:nullable="true" />
+        <action
+            android:id="@+id/action_profileFragment_to_editProfileFragment"
+            app:destination="@id/editProfileFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/editProfileFragment"
+        android:name="com.unicom.wasalakclientproduct.ui.user.EditProfileFragment"
+        android:label="EditProfileFragment" >
+
+        <argument
+            android:name="profile"
+            app:argType="com.unicom.wasalakclientproduct.model.user.AccountModel$Result"
+            app:nullable="true" />
+    </fragment>
+</navigation>

@@ -1,0 +1,410 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <string name="facebook_app_id">3557121010984987</string>
+    <string name="fb_login_protocol_scheme">fb3557121010984987</string>
+
+    <string name="title_activity_splash"> SplashActivity </string>
+    <string name="done"> تم </string>
+    <string name="next"> التالي </string>
+    <string name="start"> حسنًا </string>
+    <string name="screen1_desc"> اختر من بين 75000 خدمة ، و 2500 مشغل نماذج.
+     دمية وهمية بلاه بلاه بلاه بلاه بلاه بلاه بلاه بلاه بلاه </string>
+    <string name="screen1_title"> ناقل الكتاب </string>
+    <string name="screen2_desc"> تطبيق فلاتر متعددة مثل نوع الناقل والسعر والوقت وغير ذلك الكثير. </string>
+    <string name="screen2_title"> تصفية بحثك </string>
+    <string name="screen3_desc"> اختر العديد من محافظ طرق الدفع وبطاقات الائتمان / الخصم وصافي الخدمات المصرفية و abhicash. </string>
+    <string name="screen3_title"> مدفوعات سهلة </string>
+    <string name="screen5_desc">Manage your cash backs, cancellations &amp; booking refunds.</string>
+    <string name="screen5_title"> abhicash </string>
+    <string name="forget_password"> نسيت كلمة المرور؟ </string>
+    <string name="password_hint"> كلمة المرور </string>
+    <string name="user_name_hint"> اسم المستخدم </string>
+    <string name="register_log"> تسجيل حساب جديد </string>
+    <string name="first_name_hint"> الاسم الأول </string>
+    <string name="last_name_hint"> الاسم الأخير </string>
+    <string name="nat_hint"> الجنسية </string>
+    <string name="phone_hint"> رقم الهاتف المحمول (اختياري) </string>
+    <string name="user_email_hint"> البريد الإلكتروني </string>
+    <string name="re_password_hint"> تأكيد كلمة المرور </string>
+    <string name="register"> التسجيل </string>
+    <string name="password_hint2"> كلمة المرور </string>
+    <string name="user_name_hint2"> اسم المستخدم </string>
+    <string name="name_mandatory"> اسمك الأخير إلزامي </string>
+    <string name="firstname_mandatory"> الاسم الأول إلزامي </string>
+    اسم
+    <string name="nat_mandatory"> مطلوب </string>
+    <string name="user_name_mandatory"> اسم المستخدم إلزامي </string>
+    <string name="rpw_mandatory"> الجرعة غير متطابقة </string>
+    <string name="trans_under_review"> قيد المراجعة </string>
+    <string name="trans_passed"> ناجح </string>
+    <string name="title_activity_main"> النشاط الرئيسي </string>
+    <string name="title_home"> الطلبات </string>
+    <string name="title_dashboard"> طلبي </string>
+    <string name="title_notifications"> الإشعارات </string>
+    <string name="logout_hint"> تسجيل الخروج </string>
+    <string name="login_label"> نظام الوكلاء </string>
+    <string name="internet_connection_error"> يرجى الاتصال بالإنترنت. </string>
+    <string name="try_again"> يرجى المحاولة مرة أخرى </string>
+    تم تسجيل الدخول بنجاح
+    <string name="success_login">. </string>
+    <string name="all_fields_error"> جميع الحقول إلزامية. </string>
+    <string name="email_empty"> البريد الإلكتروني إلزامي </string>
+    <string name="permissions"> يحتاج التطبيق إلى بعض الأذونات </string>
+    <string name="phone_error"> رقم الهاتف 10 رقم </string>
+    <string name="phone_required"> رقم الهاتف مطلوب </string>
+    <string name="number_error"> بين 9 و 25 </string>
+    <string name="name_error"> يتراوح عدد الأحرف بين 2 إلى 20 </string>
+    <string name="name_error2"> تم رفض الأرقام </string>
+    <string name="change_language"> تغيير اللغة </string>
+    <string name="name_constrains"> [0–9] والأحرف الخاصة غير مسموح بها. </string>
+    <string name="user_name_error_length"> اسم المستخدم بين 2 إلى 20 رقمًا </string>
+    <string name="default_notification_channel_id"> 4568752 </string>
+    <string name="select_language"> الإنجليزية </string>
+    <string name="hint_username"> اسم المستخدم </string>
+    <string name="hint_password"> كلمة المرور </string>
+    <string name="label_login"> تسجيل الدخول </string>
+    <string name="msg_pass_required"> كلمة المرور مطلوبة </string>
+    <string name="msg_pass_length"> يجب أن تتكون كلمة المرور من 6 أحرف على الأقل </string>
+    <string name="msg_email_required"> البريد الإلكتروني مطلوب </string>
+    <string name="msg_email_invalid"> عنوان بريد إلكتروني غير صالح </string>
+    <string name="label_waiting"> قيد الانتظار </string>
+    <string name="label_accepted"> مقبولة </string>
+    <string name="label_finished"> انتهى </string>
+    <string name="pic_camera"> التقط صورة </string>
+    <string name="pic_gallery"> حدد صورة من المعرض </string>
+    <string name="sort_by"> التصنيف حسب </string>
+    <string name="subtitle1"> حالة الطلب </string>
+
+
+    <string name="issue_type"> نوع المشكلة </string>
+
+    <string name="please_select_the_device_name"> يرجى تحديد اسم الجهاز </string>
+
+    <string name="please_select_the_model_name"> يرجى تحديد اسم طراز الجهاز </string>
+
+    <string name="please_select_the_issue_type"> يرجى تحديد نوع مشكلتك </string>
+
+    <string name="location_permission"> إذن الموقع </string>
+
+    <string name="location_permission_message"> يرجى تمكين إذن الموقع للسماح للتطبيق بالحصول على موقع طلبك. </string>
+
+    <string name="show_enable_dialog"> إظهار تمكين الحوار </string>
+
+    <string name="location_permission_denied"> لا يمكن إكماله بدون إذن الموقع </string>
+
+
+    <string name="add_images"> إضافة صور </string>
+
+    <string name="issue_location"> موقع المشكلة </string>
+
+    <string name="click_here_to_set_issue_location"> انقر هنا لتعيين موقع المشكلة </string>
+
+    <string name="set_location"> تعيين الموقع </string>
+
+    <string name="check_email"> يرجى التحقق من بريدك الإلكتروني </string>
+
+    <string name="please_wait"> يرجى الانتظار .. </string>
+
+    <string name="account"> حسابي </string>
+
+    <string name="save_locations"> المواقع المحفوظة </string>
+
+    <string name="save_devices"> الأجهزة المحفوظة </string>
+
+    <string name="history"> سجل الطلبات </string>
+
+    <string name="application"> التطبيق </string>
+
+    <string name="terms_and_conditions"> الشروط والأحكام </string>
+
+    <string name="contact_us"> اتصل بنا </string>
+
+    <string name="faq"> الأسئلة الشائعة </string>
+
+    <string name="about"> حول </string>
+
+    <string name="app_version_0_8_beta"> الإصدار 0.8 من التطبيق. </string>
+
+    <string name="tell_us_more_about_your_issue"> أخبرنا بالمزيد عن مشكلتك .. </string>
+
+    <string name="send_request"> إرسال الطلب </string>
+
+    <string name="request_sent"> تم إرسال طلبك بنجاح </string>
+
+    <string name="settings"> الإعدادات </string>
+
+    <string name="place_name"> اسم المكان </string>
+
+    <string name="location_address"> عنوان الموقع </string>
+
+    <string name="city"> المدينة </string>
+
+    <string name="country"> البلد </string>
+
+    <string name="location_type"> نوع الموقع </string>
+
+    <string name="office"> المكتب </string>
+
+    <string name="apartment"> شقة </string>
+
+    <string name="floor"> أرضية </string>
+
+    <string name="door"> باب </string>
+    <string name="title_activity_maps"> الخريطة </string>
+
+
+    <string name="please_enable_device_gps"> يرجى تمكين GPS للجهاز </string>
+    <string name="no"> لا </string>
+    <string name="yes"> نعم </string>
+    <string name="filter_your_request"> تصفية طلباتك </string>
+
+
+    <string name="date"> تاريخ الميلاد </string>
+    <string name="alphabetically"> أبجديًا </string>
+    <string name="filter_by"> التصفية حسب: </string>
+    <string name="device_brand"> العلامة التجارية للجهاز </string>
+    <string name="device_category_hint"> فئة الجهاز </string>
+    <string name="device_model_hint"> طراز الجهاز </string>
+    <string name="services_hint"> الخدمات </string>
+    <string name="apply"> تطبيق </string>
+    <string name="submit"> إرسال </string>
+    <string name="the_professionals_that_you_will_never_met"> المحترفون الذين لن تقابلهم مطلقًا </string>
+    <string name="please_drag_map_to_your_address_and_click"> يرجى سحب الخريطة إلى عنوانك والنقر </string>
+    <string name="request_an_inspecti"> طلب فحص ... </string>
+    <string name="request_information"> طلب المعلومات </string>
+    <string name="shipping_address"> عنوان الشحن </string>
+    <string name="model"> نموذج </string>
+    <string name="service_hint"> الخدمة </string>
+    <string name="service"> الخدمة </string>
+    <string name="description_hint"> الوصف </string>
+    <string name="enter_descreoption_for_your_issues_to_help_the_technician_resolve_it_quikly"> أدخل وصفًا لمشاكلك لمساعدة الفني على حلها بسرعة. </string>
+    <string name="add_photos"> إضافة صور </string>
+    <string name="reset_password"> إعادة تعيين كلمة المرور </string>
+    <string name="select_address_hint"> حدد العنوان </string>
+    <string name="add_new_address"> إضافة عنوان جديد </string>
+    <string name="street_address"> عنوان الشارع </string>
+    <string name="apartment_no_hint"> شقة رقم </string>
+    <string name="address_type_hint"> نوع العنوان </string>
+    <string name="available_time_hint"> الوقت المتاح </string>
+    <string name="back"> رجوع </string>
+
+    <string name="skip"> تخطي </string>
+    <string name="send_verification_code"> إرسال رمز التحقق </string>
+    <string name="verification_code_hint"> رمز التحقق </string>
+    <string name="reset_password_msg"> لقد أرسلنا إليك بريدًا إلكترونيًا يحتوي على رابط لإعادة تعيين كلمة المرور الخاصة بك. يرجى التحقق من بريدك الإلكتروني ومواصلة إعادة تعيين كلمة المرور الخاصة بك. </string>
+    <string name="change"> تغيير </string>
+    <string name="save"> حفظ </string>
+    <string name="select_from_map"> حدد من الخريطة </string>
+    <string name="no_brands"> لا علامات تجارية </string>
+    <string name="please_chose_your_device_barand"> يرجى اختيار شريط الجهاز الخاص بك. </string>
+    <string name="address"> العنوان </string>
+    <string name="payments"> المدفوعات </string>
+    <string name="add_new_payment"> إضافة دفعة جديدة </string>
+    <string name="please_chose_your_device_models"> يرجى اختيار طرازات جهازك. </string>
+    <string name="account_settings"> إعدادات الحساب </string>
+    <string name="signout"> تسجيل الخروج </string>
+    <string name="my_address"> عنواني </string>
+    <string name="payment_methods"> طرق الدفع </string>
+    <string name="language"> اللغة </string>
+    <string name="how_to_use_proserve_mobile_app"> كيفية استخدام تطبيق Proserve للجوال </string>
+    <string name="more_details"> مزيد من التفاصيل </string>
+    <string name="order_timeline"> المخطط الزمني للطلب </string>
+
+    <string name="in_process"> قيد المعالجة </string>
+    <string name="completed"> مكتملة </string>
+    <string name="screen_is_cracked_front_only"> الشاشة متصدعة (أمامية فقط) </string>
+    <string name="repair_cracked_iphone_msg"> يمكنك إصلاح شاشة iPhone متصدعة في an يمكنك إصلاح شاشة iPhone متصدعة في an يمكنك إصلاح شاشة iPhone متصدعة في an يمكنك إصلاح شاشة iPhone متصدعة في an يمكنك إصلاح شاشة iPhone متصدع في an يمكنك إصلاح شاشة iPhone متصدع في an يمكنك إصلاح شاشة iPhone متصدع في an يمكنك إصلاح شاشة iPhone متصدع في an يمكنك إصلاح شاشة iPhone متصدع في an يمكنك إصلاح شاشة iPhone متصدعة في an يمكنك إصلاح شاشة iPhone متصدع في an يمكنك إصلاح شاشة iPhone متصدعة في an يمكنك إصلاح شاشة iPhone متصدعة في an يمكنك إصلاح شاشة iPhone متصدعة في an يمكنك إصلاح شاشة iPhone متصدعة في an يمكنك إصلاح شاشة iPhone متصدعة في an يمكنك إصلاح شاشة iPhone متصدعة في an يمكنك إصلاح iPhone متصدع الشاشة في متجر Apple أو أحد مزودي الخدمة المعتمدين من Apple. </string>
+    <string name="request_an_inspection"> طلب فحص </string>
+    <string name="please_chose_your_device_services"> يرجى اختيار خدمات جهازك. </string>
+    <string name="arabic"> العربية </string>
+    <string name="submitted"> تم التقديم </string>
+    <string name="default_date">24 Sep, 2019 - 3:20 PM</string>
+
+
+    <string name="profile"> الملف الشخصي </string>
+    <string name="close"> إغلاق </string>
+    <string name="reset"> إعادة تعيين </string>
+    <string name="add"> إضافة </string>
+    <string name="get_support"> احصل على الدعم </string>
+    <string name="requestes_st"> الطلبات </string>
+    <string name="notifications_st"> الإخطارات </string>
+    <string name="reject_lable"> رفض </string>
+    <string name="label_accept"> قبول </string>
+    <string name="select_payment_hint"> حدد طريقة الدفع </string>
+    <string name="select_other_method"> الدفع بطريقة أخرى </string>
+    <string name="invoces_hint"> عناصر الفاتورة </string>
+    <string name="rasm_lbl"> الإجمالي </string>
+    <string name="requests_lbl"> الطلبات </string>
+
+
+    <string name="app_name">وصلك</string>
+    <string name="user_name">اسم المستخدم</string>
+    <string name="password">كلمة المرور</string>
+    <string name="current_password">كلمة المرور الحالية</string>
+    <string name="login">دخول</string>
+    <string name="request_number">طلب رقم # </string>
+    <string name="requests">الطلبات</string>
+    <string name="enter_username_provided_from_administrator">ادخل اسم المستخدم المعطي لك من قبل مدير النظام</string>
+    <string name="email_mandatory">مطلوب البريد الالكتروني</string>
+    <string name="email_mandatory2">من فضلك ادخل البريد الالكتروني</string>
+    <string name="pass_mandatory">كلمة المرور مطلوبة</string>
+    <string name="pass_mandatory2">من فضلك ادخل كلمة المرور</string>
+    <string name="msg_pass_match">كلمة المرو غير متطابقة</string>
+    <string name="email_error">لقد قمت بادخال بريد الكتروني غير صالح</string>
+    <string name="waiting">انتظار...</string>
+    <string name="empty_email"> من فضلك ادخل بريد الكتروني صحيح</string>
+    <string name="please_choose_request"> رجاءً، اختر طلب لعرض تفاصيله هنا</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="login_error_msg">عفوا لقد حدث خطأ أثناء تسجيل الدخول</string>
+    <string name="title_item_list"> العناصر </string>
+    <string name="title_item_detail"> تفاصيل العنصر </string>
+    <string name="search"> بحث </string>
+    <string name="presenter_name">اسم مقدم الطلب</string>
+    <string name="total_distance">المسافة الكلية</string>
+    <string name="pickup_point">نقطة الالتقاط</string>
+    <string name="arrived_point">نقطة الانزال</string>
+    <string name="call">اتصل</string>
+    <string name="amount">المبلغ المطلوب</string>
+    <string name="description">وصف الطلب</string>
+    <string name="are_you_sure_you_arrived">هل أنت متأكد من أنك وصلت للنقطة المطلوبة؟</string>
+    <string name="are_you_sure_you_log_out">هل أنت متأكد من أنك تريد تسجيل الخروج؟</string>
+    <string name="confirm_arriving">تأكيد الوصول</string>
+    <string name="log_out">حسابي</string>
+    <string name="warning">تحذير</string>
+    <string name="Please_open_gps">من فضلك قم يتشغيل نظام تحديد المواقع</string>
+    <string name="confirm">تأكيد</string>
+    <string name="ok">حسنا</string>
+    <string name="cancel">الغاء</string>
+    <string name="no_result">لا يوجد نتائج</string>
+    <string name="invalid_password">كلمة مرور غير صالحة</string>
+    <string name="invalid_e_mail">بريد الكترونى غير صالح</string>
+    <string name="upload_another_one_image">قم باضافة صورة</string>
+    <string name="notes">ملاحظات</string>
+    <string name="title_activity_home">HomeActivity</string>
+    <string name="Search_a_place">اختر العنوان</string>
+    <string name="confirm_pick_up">تاكيد العنوان</string>
+
+    <string name="unable_to_get_last_location">غير قادر على تحديد اخر موقع.</string>
+    <string name="title_activity_google">الخريطة</string>
+    <string name="sender_name_empty">يجب ادخال اسم الراسل</string>
+    <string name="sender_name_length_error">اسم الراسل غير صالح</string>
+    <string name="sender_address_empty">يجب ادخال عنون الراسل</string>
+    <string name="sender_address_length_error">العنوان يجب ان يكون اكبر من 23 حرف</string>
+    <string name="sender_phone_empty">"رقم الهاتف اجباري "</string>
+    <string name="sender_phone_length_error">"رقم الهاتف يجب ان لايقل عن 111 رقم "</string>
+    <string name="reciver_name_empty">"اسم المستلم اجباري "</string>
+    <string name="reciver_address_empty">عنوان المستلم اجباري</string>
+    <string name="label_help">تعاون</string>
+    <string name="label_takaful">تكافل</string>
+    <string name="label_basic">تجاري</string>
+    <string name="more">More</string>
+
+    <string name="new_password">كلمة المرور الجديده</string>
+    <string name="repeat_password">تكرار كلمة المرور</string>
+
+    <string name="change_password">تغير كلمة المرور</string>
+    <string name="current_password_hint">كلمة المرور الحالية</string>
+    <string name="password_mandatory">لابد من ادخال كلمة المرور.</string>
+    <string name="password_error">من فضلك ادخل كلمة سر مكونة من 8 خانات</string>
+    <string name="first_name">الاسم الاول</string>
+    <string name="first_name_required">مطلوب الاسم الاول</string>
+    <string name="user_name_required">مطلوب اسم المستخدم</string>
+    <string name="last_name">الاسم الاخير</string>
+    <string name="last_name_required">مطلوب الاسم الاخير</string>
+    <string name="required">مطلوب </string>
+    <string name="go_signin_txt">تسجيل الدخول</string>
+    <string name="english"> الإنجليزية </string>
+    <string name="choose_lang"> يرجى اختيار اللغة التي تريد اكتشافها </string>
+    <string name="password_not_match">كلمة المرور غير متطابقة</string>
+    <string name="password_not_valid"> يجب أن تحتوي كلمات المرور على حرف واحد غير أبجدي رقمي على الأقل. يجب أن تحتوي كلمات المرور على حرف صغير واحد على الأقل ("a" - "z"). يجب أن تحتوي كلمات المرور على حرف كبير واحد على الأقل ("A" - "Z")</string>
+    <string name="sucess"> النجاح </string>
+    <string name="retry"> إعادة المحاولة </string>
+    <string name="sure_logout"> هل أنت متأكد من تسجيل الخروج؟ </string>
+    <string name="logout"> تسجيل الخروج </string>
+    <string name="enter_address"> يرجى إدخال عنوانك </string>
+    <string name="get_add_map">تحديد العنوان من علي الخريطة</string>
+    <string name="ne_account">تسجيل حساب جديد</string>
+    <string name="send">ارسال</string>
+    <string name="welcome">مرحبا</string>
+    <string name="add_new_order"> إضافة طلب جديد </string>
+    <string name="confirm_order"> تأكيد الطلب </string>
+    <string name="orders"> الطلبات </string>
+
+    <string name="slider1_title">اطلب</string>
+    <string name="slider2_title">تواصل معنا</string>
+    <string name="slider3_title">استلم طلبك</string>
+
+    <string name="slider1_text">لن تحتاج للذهاب لأى مكان لجلب
+ما يحتاجه البيت من سلع تموينية</string>
+    <string name="slider2_text">اتصل بنا على الخط الساخن (5512) على مدار الـ 24 ساعة</string>
+    <string name="slider3_text">نحن ببساطة من سنوصلها إليك داخل بغداد أو أى مدينة أخرى فى العراق </string>
+    <string name="open_now"> فتح الآن </string>
+    <string name="reviews"> التقييمات </string>
+    <string name="order_now"> اطلب الآن </string>
+    <string name="off"> خصم </string>
+    <string name="qty"> الكمية: </string>
+    <string name="store"> المتجر </string>
+    <string name="menu"> القائمة </string>
+    <string name="show_all"> إظهار الكل </string>
+    <string name="open_times"> الأوقات المفتوحة </string>
+    <string name="closed_now"> مغلق الآن </string>
+    <string name="add_products"> إضافة منتجات </string>
+    <string name="shipment_status"> حالة الشحن </string>
+    <string name="reference_number"> الرقم المرجعي: </string>
+    <string name="order_time"> وقت الطلب: </string>
+    <string name="add_review"> إضافة تقييم </string>
+    <string name="your_rate"> تقييمك </string>
+    <string name="review_list"> قائمة التقييمات </string>
+    <string name="write_your_review"> اكتب رأيك </string>
+    <string name="customer_feedback"> ملاحظات العملاء </string>
+    <string name="review"> تقييم </string>
+    <string name="add_first_review"> إضافة التقييم الأول </string>
+    <string name="insert_review"> يرجى إدراج التقييم </string>
+    <string name="please_enter_products"> يرجى إدخال منتجاتك </string>
+    <string name="choose_at_least_product"> يرجى اختيار منتج واحد على الأقل </string>
+    <string name="payment_options"> خيارات الدفع </string>
+    <string name="deliver_to"> التسليم إلى </string>
+    <string name="your_address"> عنوانك </string>
+    <string name="your_notes"> ملاحظاتك </string>
+    <string name="choose_drop_off_location"> اختر موقع التسليم </string>
+    <string name="delivery_address"> عنوان التسليم </string>
+    <string name="choose_another_vendor"> اختر بائعًا آخر </string>
+    <string name="order_status"> حالة الطلب </string>
+    <string name="order_items"> عناصر الطلب </string>
+    <string name="cash_on_door"> الدفع عند الباب </string>
+    <string name="once_again_to_exit"> اضغط مرة أخرى للخروج </string>
+    <string name="yesagain"> نعم </string>
+    <string name="return_stores_close"> قم بإرجاع المتاجر القريبة منك </string>
+    <string name="perm_support"> دعم الإذن </string>
+    <string name="active_location"> يرجى تنشيط الموقع </string>
+    <string name="go_setting"> انقر فوق "موافق" للانتقال إلى الإعدادات. </string>
+    <string name="add_to_cart"> إضافة إلى سلة التسوق </string>
+    <string name="iqd"> دينار </string>
+    <string name="chose_adres"> اختر العنوان </string>
+    <string name="chose_location"> يرجى اختيار موقعك من الخريطة </string>
+    <string name="you_are_here"> أنت هنا </string>
+    <string name="phone_number">رقم الهاتف</string>
+    <string name="new_password2"> كلمة المرور الجديدة </string>
+    <string name="confirm_password"> تأكيد كلمة المرور </string>
+    <string name="change_password2"> تغيير كلمة المرور </string>
+    <string name="order_detail"> تفاصيل الطلب </string>
+    <string name="day">اليوم</string>
+    <string name="close_times">الأوقات المغلقة</string>
+    <string name="or"> أو </string>
+    <string name="addresses"> العناوين </string>
+    <string name="questions_and_inquiries"> الأسئلة والاستفسارات </string>
+    <string name="do_you_forgot"> هل نسيت كلمة؟ </string>
+    <string name="email"> البريد الإلكتروني </string>
+    <string name="personal_info"> البيانات الشخصية </string>
+    <string name="male"> ذكر </string>
+    <string name="female"> أنثى </string>
+    <string name="gender"> الجنس </string>
+    <string name="update">تحديث</string>
+    <string name="login_social_txt">يمكنك الدخول عن طريق مواقع التواصل الاجتماعي</string>
+    <string name="register_success">لقد تم انشاء الحساب بنجاح من فضلك افحص ايميلك</string>
+    <string name="success_change">تم تغيير كلمة السر بنجاح</string>
+    <string name="sucess_edit">تم تعديل البروفايل بنجاح</string>
+</resources>
+

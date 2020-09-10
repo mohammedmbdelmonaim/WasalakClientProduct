@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#FFFFFF</color>
+    <color name="colorPrimaryDark">#F3EFEE</color>
+    <color name="colorAccent">#00D472</color>
+
+    <color name="black">#000000</color>
+
+    <color name="black_alpha_50">#80000000</color>
+    <color name="malachite">#00d44a</color>
+    <color name="deepSkyBlue">#00cff7</color>
+    <color name="caribbeanGreen">#00d484</color>
+    <color name="taupeGray">#8e8e93</color>
+    <color name="whiteSmoke">#f5f5f5</color>
+    <color name="recyclerBg">#ebf4f2</color>
+    <color name="uFOGreen">#34c759</color>
+    <color name="auroMetalSaurus">#767680</color>
+    <color name="salGreen">#006222</color>
+    <color name="pinGreen">#018369</color>
+    <color name="black_54">#8A000000</color>
+    <color name="red_error">#E10000</color>
+
+    // new colors
+    <color name="light_wieht">#ffffff</color>
+    // new colors
+    <color name="dot_dark_screen1">#888888</color>
+    <color name="dot_light_screen1">#ffffff</color>
+    <array name="array_dot_active">
+        <item>@color/dot_light_screen1</item>
+        <item>@color/dot_light_screen1</item>
+        <item>@color/dot_light_screen1</item>
+        <item>@color/dot_light_screen1</item>
+        <item>@color/dot_light_screen1</item>
+        <item>@color/dot_light_screen1</item>
+    </array>
+    <array name="array_dot_inactive">
+        <item>@color/dot_dark_screen1</item>
+        <item>@color/dot_dark_screen1</item>
+        <item>@color/dot_dark_screen1</item>
+        <item>@color/dot_dark_screen1</item>
+        <item>@color/dot_dark_screen1</item>
+        <item>@color/dot_dark_screen1</item>
+    </array>
+    <color name="splash_color">#8AD7FA</color>
+    <color name="colorPrimaryText">#212121</color>
+    <color name="colorSecondaryText">#757575</color>
+    <color name="ramady">#888484</color>
+    <color name="white">#ffffff</color>
+    <color name="gray">#ACACAC</color>
+    <color name="transparent">#1AFFFFFF</color>
+    <color name="blue">#251E54</color>
+    <color name="blue2">#04A3FF</color>
+    <color name="shadow_color">#805F5F5F</color>
+    <color name="colorWhiteDark">#E0E0E0</color>
+    <color name="ColorBlackTransparent">#4D0D0D0D</color>
+    <color name="ColorWhiteTransparent">#5EFFFFFF</color>
+    <color name="dividerColor">#C0BFBF</color>
+    <color name="green">#1B6539</color>
+    <color name="orange">#F9B800</color>
+    // new colors
+    <color name="colorGreen">#1B6539</color>
+    <color name="colorYellow">#F9B800</color>
+    <color name="colorRed">#B00020</color>
+    <color name="colorBlackBold">#212121</color>
+    <color name="colorBlack">#9C9C9C</color>
+
+
+
+    <color name="rust">#b24511</color>
+    <color name="flame">#da581a</color>
+    <color name="electricindigo">#6202ee</color>
+    <color name="darkjunglegreen">#191919</color>
+    <color name="electricindigo_1">#6200ee</color>
+    <color name="deepcarrotorange">#f26522</color>
+    <color name="snow">#fafafa</color>
+    <color name="ashgrey">#b2b8ba</color>
+    <color name="saintpatrickblue">#2d2f87</color>
+    <color name="macaroniandcheese">#f8af91</color>
+    <color name="flame_1">#e75f1e</color>
+    <color name="linen">#f9eae7</color>
+    <color name="lust">#e02020</color>
+    <color name="dimgray">#667275</color>
+    <color name="onyx">#001419</color>
+    <color name="timberwolf">#d8d8d8</color>
+    <color name="taupe">#383838</color>
+    <color name="mediumelectricblue">#015495</color>
+    <color name="manatee">#979797</color>
+    <color name="liver">#4b4a49</color>
+    <color name="princetonorange">#ff9300</color>
+    <color name="deepskyblue">#00a5ff</color>
+    <color name="aurometalsaurus">#767680</color>
+    <color name="manatee_1">#8e8e93</color>
+    <color name="darkjunglegreen_1">#231f20</color>
+    <color name="carrotorange">#f29e22</color>
+    <color name="snow_1">#f7f8f8</color>
+    <color name="mountainmeadow">#29bb9c</color>
+    <color name="applegreen">#73c700</color>
+    <color name="limegreen">#28b446</color>
+    <color name="deepskyblue_1">#00aced</color>
+    <color name="vermilion">#f14336</color>
+    <color name="selectiveyellow">#fbbb00</color>
+    <color name="unitednationsblue">#518ef8</color>
+    <color name="lapislazuli">#3b5998</color>
+    <color name="whitesmoke">#f5f5f5</color>
+    <color name="americanrose">#ff0c3e</color>
+    <color name="colorGray">#B9B9B9</color>
+    <color name="grey_status">#63625F</color>
+    <color name="orange_status">#FE9100</color>
+    <color name="blue_status">#ff00a5ff</color>
+    <color name="green_status">#ff73c700</color>
+
+    <color name="light_gray">#7a7a7a</color>
+
+    <color name="facebook">#3b5998</color>
+
+    <color name="error">#FF1744</color>
+
+    <color name="notification_request_approved">#FF9F19</color>
+
+    <color name="notification_request_arrived">#009688</color>
+
+    <color name="notification_request_price_confirm">#F44336</color>
+
+    <color name="notification_request_fix_center_confirmation">#4CAF50</color>
+
+    <color name="notification_request_progress">#2196F3</color>
+
+    <color name="notification_request_solved">#607D8B</color>
+    <color name="orange_status2">#F26522</color>
+</resources>

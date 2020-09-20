@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="market"
+            type="com.unicom.wasalakclientproduct.model.user.MarketsModel.Result" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dimen_15dp"
+        app:cardBackgroundColor="#fff"
+        app:cardCornerRadius="@dimen/dimen_18dp"
+        app:cardElevation="@dimen/dimen_4dp"
+        app:strokeColor="#ccc"
+        app:strokeWidth="@dimen/dimen_0.1dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/market_constraint"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/market_img"
+                android:layout_width="@dimen/dimen_40dp"
+                android:layout_height="@dimen/dimen_40dp"
+                android:layout_marginStart="@dimen/dimen_16dp"
+                android:layout_marginTop="@dimen/dimen_16dp"
+                android:src="@drawable/ic_notifications"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_7dp"
+                android:layout_marginBottom="@dimen/dimen_16dp"
+                android:fontFamily="@font/cairo_semibold"
+                android:textSize="@dimen/dimen_16sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@id/market_img"
+                app:layout_constraintTop_toBottomOf="@id/market_img"
+                tools:text="ملابس جاهزة" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+</layout>

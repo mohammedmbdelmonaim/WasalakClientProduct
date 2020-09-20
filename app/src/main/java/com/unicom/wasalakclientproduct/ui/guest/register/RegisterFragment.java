@@ -1,6 +1,5 @@
 package com.unicom.wasalakclientproduct.ui.guest.register;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,42 +16,28 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
-import com.unicom.wasalakclientproduct.MainApplication;
 import com.unicom.wasalakclientproduct.R;
 import com.unicom.wasalakclientproduct.databinding.FragmentRegisterBinding;
-import com.unicom.wasalakclientproduct.di.component.ApplicationComponent;
-import com.unicom.wasalakclientproduct.di.component.RegisterFragmentComponent;
-import com.unicom.wasalakclientproduct.di.qualifier.ActivityContext;
 import com.unicom.wasalakclientproduct.model.CityClass;
-import com.unicom.wasalakclientproduct.model.CityModel;
 import com.unicom.wasalakclientproduct.model.CountryClass;
-import com.unicom.wasalakclientproduct.model.CountryModel;
 import com.unicom.wasalakclientproduct.model.guest.RegisterModel;
 import com.unicom.wasalakclientproduct.model.guest.RegisterUser;
-import com.unicom.wasalakclientproduct.viewmodel.ViewModelFactory;
 import com.unicom.wasalakclientproduct.viewmodel.guest.RegisterViewModel;
 
 import java.util.List;
 
-import javax.inject.Inject;
-
+import dagger.hilt.android.AndroidEntryPoint;
 import es.dmoral.toasty.Toasty;
 
 /**
  * A simple {@link Fragment} subclass.
  */
+
+@AndroidEntryPoint
 public class RegisterFragment extends Fragment {
     private NavController navController;
     private FragmentRegisterBinding binding;
     private RegisterViewModel registerViewModel;
-    @Inject
-    ViewModelFactory viewModelFactory;
-
-    @Inject
-    @ActivityContext
-    Context context;
-
-    private static final String TAG = "RegisterFragment";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -70,15 +55,10 @@ public class RegisterFragment extends Fragment {
             navController = Navigation.findNavController(view);
         }
 
-        //dagger
-        ApplicationComponent applicationComponent = MainApplication.get(getActivity()).getApplicationComponent();
-        RegisterFragmentComponent fragmentComponent = applicationComponent.registerFragmentComponentBuilder().getContext(getActivity()).build();
-        fragmentComponent.inject(this);
-
         binding.ccp.registerPhoneNumberTextView(binding.edtPhone);
 
         //data binding to view
-        registerViewModel = new ViewModelProvider(this, viewModelFactory).get(RegisterViewModel.class);
+        registerViewModel = new ViewModelProvider(this).get(RegisterViewModel.class);
         binding.setLifecycleOwner(this);
         binding.setRegisterViewModel(registerViewModel);
         binding.setFragment(this);
@@ -89,7 +69,7 @@ public class RegisterFragment extends Fragment {
             @Override
             public void onChanged(List<CountryClass> countryClassList) {
                 ArrayAdapter<CountryClass> adapter = new ArrayAdapter<CountryClass>
-                        (context, android.R.layout.simple_list_item_1, countryClassList);
+                        (getActivity(), android.R.layout.simple_list_item_1, countryClassList);
                 binding.edtCountry.setThreshold(1);
                 binding.edtCountry.setAdapter(adapter);
                 binding.edtCountry.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -108,7 +88,7 @@ public class RegisterFragment extends Fragment {
             @Override
             public void onChanged(List<CityClass> cityClassList) {
                 ArrayAdapter<CityClass> adapter = new ArrayAdapter<CityClass>
-                        (context, android.R.layout.simple_list_item_1, cityClassList);
+                        (getActivity(), android.R.layout.simple_list_item_1, cityClassList);
                 binding.edtCity.setThreshold(1);
                 binding.edtCity.setAdapter(adapter);
                 binding.edtCity.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -185,7 +165,7 @@ public class RegisterFragment extends Fragment {
             @Override
             public void onChanged(RegisterModel registerModel) {
                 navController.navigateUp();
-                Toasty.success(context, R.string.register_success, Toasty.LENGTH_SHORT).show();
+                Toasty.success(getActivity(), R.string.register_success, Toasty.LENGTH_SHORT).show();
             }
         });
 

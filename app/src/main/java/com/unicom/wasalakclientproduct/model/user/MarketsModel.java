@@ -5,57 +5,80 @@ import androidx.recyclerview.widget.DiffUtil;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import com.unicom.wasalakclientproduct.model.ErrorNetwork;
 
 import java.util.List;
 import java.util.Objects;
 
-public class ActivitiesModel {
-    @SerializedName("innerData")
+public class MarketsModel {
+    @SerializedName("result")
     @Expose
-    private List<InnerDatum> innerData = null;
-    @SerializedName("isSuccess")
+    private List<Result> result;
+    @SerializedName("targetUrl")
     @Expose
-    private Boolean isSuccess;
-    @SerializedName("statusCode")
+    private Object targetUrl;
+    @SerializedName("success")
     @Expose
-    private Integer statusCode;
-    @SerializedName("message")
+    private Boolean success;
+    @SerializedName("error")
     @Expose
-    private String message;
+    private ErrorNetwork error;
+    @SerializedName("unAuthorizedRequest")
+    @Expose
+    private Boolean unAuthorizedRequest;
+    @SerializedName("__abp")
+    @Expose
+    private Boolean abp;
 
-    public List<InnerDatum> getInnerData() {
-        return innerData;
+    public List<Result> getResult() {
+        return result;
     }
 
-    public void setInnerData(List<InnerDatum> innerData) {
-        this.innerData = innerData;
+    public void setResult(List<Result> result) {
+        this.result = result;
     }
 
-    public Boolean getIsSuccess() {
-        return isSuccess;
+    public Object getTargetUrl() {
+        return targetUrl;
     }
 
-    public void setIsSuccess(Boolean isSuccess) {
-        this.isSuccess = isSuccess;
+    public void setTargetUrl(Object targetUrl) {
+        this.targetUrl = targetUrl;
     }
 
-    public Integer getStatusCode() {
-        return statusCode;
+    public Boolean getSuccess() {
+        return success;
     }
 
-    public void setStatusCode(Integer statusCode) {
-        this.statusCode = statusCode;
+    public void setSuccess(Boolean success) {
+        this.success = success;
     }
 
-    public String getMessage() {
-        return message;
+    public ErrorNetwork getError() {
+        return error;
     }
 
-    public void setMessage(String message) {
-        this.message = message;
+    public void setError(ErrorNetwork error) {
+        this.error = error;
     }
 
-    public static class InnerDatum {
+    public Boolean getUnAuthorizedRequest() {
+        return unAuthorizedRequest;
+    }
+
+    public void setUnAuthorizedRequest(Boolean unAuthorizedRequest) {
+        this.unAuthorizedRequest = unAuthorizedRequest;
+    }
+
+    public Boolean getAbp() {
+        return abp;
+    }
+
+    public void setAbp(Boolean abp) {
+        this.abp = abp;
+    }
+
+    public static class Result {
         @SerializedName("id")
         @Expose
         private Integer id;
@@ -103,7 +126,7 @@ public class ActivitiesModel {
         public boolean equals(Object o) {
             if (this == o) return true;
             if (o == null || getClass() != o.getClass()) return false;
-            InnerDatum that = (InnerDatum) o;
+            Result that = (Result) o;
             return id.equals(that.id) &&
                     name.equals(that.name) &&
                     description.equals(that.description);
@@ -114,14 +137,14 @@ public class ActivitiesModel {
             return Objects.hash(id, name, description);
         }
 
-        public static DiffUtil.ItemCallback<InnerDatum> itemCallback = new DiffUtil.ItemCallback<InnerDatum>() {
+        public static DiffUtil.ItemCallback<Result> itemCallback = new DiffUtil.ItemCallback<Result>() {
             @Override
-            public boolean areItemsTheSame(@NonNull InnerDatum oldItem, @NonNull InnerDatum newItem) {
+            public boolean areItemsTheSame(@NonNull Result oldItem, @NonNull Result newItem) {
                 return oldItem.getId().equals(newItem.getId());
             }
 
             @Override
-            public boolean areContentsTheSame(@NonNull InnerDatum oldItem, @NonNull InnerDatum newItem) {
+            public boolean areContentsTheSame(@NonNull Result oldItem, @NonNull Result newItem) {
                 return oldItem.equals(newItem);
             }
         };

@@ -29,12 +29,8 @@ import com.bumptech.glide.Glide;
 import com.github.dhaval2404.imagepicker.ImagePicker;
 import com.google.android.material.datepicker.MaterialDatePicker;
 import com.google.android.material.datepicker.MaterialPickerOnPositiveButtonClickListener;
-import com.unicom.wasalakclientproduct.MainApplication;
 import com.unicom.wasalakclientproduct.R;
 import com.unicom.wasalakclientproduct.databinding.FragmentEditProfileBinding;
-import com.unicom.wasalakclientproduct.di.component.ApplicationComponent;
-import com.unicom.wasalakclientproduct.di.component.EditProfileFragmentComponent;
-import com.unicom.wasalakclientproduct.di.qualifier.ActivityContext;
 import com.unicom.wasalakclientproduct.model.CityClass;
 import com.unicom.wasalakclientproduct.model.CountryClass;
 import com.unicom.wasalakclientproduct.model.user.AccountModel;
@@ -43,7 +39,6 @@ import com.unicom.wasalakclientproduct.model.user.UpdateProfileDTO;
 import com.unicom.wasalakclientproduct.model.user.UpdateProfileModel;
 import com.unicom.wasalakclientproduct.model.user.UploadImageModel;
 import com.unicom.wasalakclientproduct.utils.PreferenceUtils;
-import com.unicom.wasalakclientproduct.viewmodel.ViewModelFactory;
 import com.unicom.wasalakclientproduct.viewmodel.user.EditProfileViewModel;
 
 import java.io.File;
@@ -55,34 +50,22 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import dagger.hilt.android.AndroidEntryPoint;
 import es.dmoral.toasty.Toasty;
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
 
+@AndroidEntryPoint
 public class EditProfileFragment extends Fragment {
 
     FragmentEditProfileBinding binding;
     private NavController navController;
-    @ActivityContext
-    @Inject
-    Context context;
-    @Inject
-    ViewModelFactory viewModelFactory;
     private EditProfileViewModel editProfileViewModel;
 
     @Inject
     PreferenceUtils preference;
     private CircularProgressDrawable circularProgressDrawable;
-
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        // dagger
-        ApplicationComponent applicationComponent = MainApplication.get(getActivity()).getApplicationComponent();
-        EditProfileFragmentComponent editProfileFragmentComponent = applicationComponent.editProfileFragmentComponentBuilder().getContext(getActivity()).build();
-        editProfileFragmentComponent.inject(this);
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -110,7 +93,7 @@ public class EditProfileFragment extends Fragment {
         });
 
         //data binding to view
-        editProfileViewModel = new ViewModelProvider(this, viewModelFactory).get(EditProfileViewModel.class);
+        editProfileViewModel = new ViewModelProvider(this).get(EditProfileViewModel.class);
         binding.setLifecycleOwner(this);
         binding.setViewModel(editProfileViewModel);
         binding.setFragment(this);
@@ -121,7 +104,7 @@ public class EditProfileFragment extends Fragment {
             @Override
             public void onChanged(List<GenderDTO> genders) {
                 ArrayAdapter<GenderDTO> adapter = new ArrayAdapter<GenderDTO>
-                        (context, android.R.layout.simple_list_item_1, genders);
+                        (getActivity(), android.R.layout.simple_list_item_1, genders);
                 binding.edtGender.setThreshold(1);
                 binding.edtGender.setAdapter(adapter);
                 binding.edtGender.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -138,7 +121,7 @@ public class EditProfileFragment extends Fragment {
             @Override
             public void onChanged(List<CountryClass> countryClassList) {
                 ArrayAdapter<CountryClass> adapter = new ArrayAdapter<CountryClass>
-                        (context, android.R.layout.simple_list_item_1, countryClassList);
+                        (getActivity(), android.R.layout.simple_list_item_1, countryClassList);
                 binding.edtCountry.setThreshold(1);
                 binding.edtCountry.setAdapter(adapter);
                 binding.edtCountry.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -157,7 +140,7 @@ public class EditProfileFragment extends Fragment {
             @Override
             public void onChanged(List<CityClass> cityClassList) {
                 ArrayAdapter<CityClass> adapter = new ArrayAdapter<CityClass>
-                        (context, android.R.layout.simple_list_item_1, cityClassList);
+                        (getActivity(), android.R.layout.simple_list_item_1, cityClassList);
                 binding.edtCity.setThreshold(1);
                 binding.edtCity.setAdapter(adapter);
                 binding.edtCity.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -230,7 +213,7 @@ public class EditProfileFragment extends Fragment {
         editProfileViewModel.getUpdateProfileLiveData().observe(getViewLifecycleOwner(), new Observer<UpdateProfileModel>() {
             @Override
             public void onChanged(UpdateProfileModel updateProfileModel) {
-                Toasty.success(context , getString(R.string.sucess_edit) , Toasty.LENGTH_LONG).show();
+                Toasty.success(getActivity() , getString(R.string.sucess_edit) , Toasty.LENGTH_LONG).show();
                 profile.setLastName(updateProfileModel.getResult().getLastName());
                 profile.setFirstName(updateProfileModel.getResult().getFirstName());
                 profile.setUserImage(updateProfileModel.getResult().getUserImage());
@@ -261,7 +244,7 @@ public class EditProfileFragment extends Fragment {
     }
 
     public void clickDate(View v) {
-        Integer fullscreenTheme = resolveOrThrow(context, R.attr.materialCalendarFullscreenTheme);
+        Integer fullscreenTheme = resolveOrThrow(getActivity(), R.attr.materialCalendarFullscreenTheme);
         MaterialDatePicker.Builder datePickerBuilder = MaterialDatePicker.Builder.datePicker();
         datePickerBuilder.setTheme(fullscreenTheme);
         datePickerBuilder.setTheme(R.style.MaterialCalendarTheme);
@@ -335,9 +318,9 @@ public class EditProfileFragment extends Fragment {
                     MultipartBody.Part.createFormData("file", file.getName(), requestFile);
             editProfileViewModel.uploadFile(body);
         } else if (resultCode == ImagePicker.RESULT_ERROR) {
-            Toast.makeText(context, ImagePicker.Companion.getError(data), Toast.LENGTH_SHORT).show();
+            Toast.makeText(getActivity(), ImagePicker.Companion.getError(data), Toast.LENGTH_SHORT).show();
         } else {
-            Toast.makeText(context, "Task Cancelled", Toast.LENGTH_SHORT).show();
+//            Toast.makeText(getActivity(), "Task Cancelled", Toast.LENGTH_SHORT).show();
         }
     }
 

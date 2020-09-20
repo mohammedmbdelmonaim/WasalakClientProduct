@@ -1,8 +1,6 @@
 package com.unicom.wasalakclientproduct.ui.user;
 
-import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,36 +16,27 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
-import com.unicom.wasalakclientproduct.MainApplication;
 import com.unicom.wasalakclientproduct.R;
 import com.unicom.wasalakclientproduct.databinding.FragmentChangePasswordBinding;
-import com.unicom.wasalakclientproduct.di.component.ApplicationComponent;
-import com.unicom.wasalakclientproduct.di.component.ChangePasswordFragmentComponent;
-import com.unicom.wasalakclientproduct.di.qualifier.ActivityContext;
 import com.unicom.wasalakclientproduct.model.StructueMode;
 import com.unicom.wasalakclientproduct.model.user.ChangePassUser;
 import com.unicom.wasalakclientproduct.ui.guest.GuestActivity;
 import com.unicom.wasalakclientproduct.utils.PreferenceUtils;
-import com.unicom.wasalakclientproduct.viewmodel.ViewModelFactory;
 import com.unicom.wasalakclientproduct.viewmodel.user.ChangePasswordViewModel;
-
 
 import javax.inject.Inject;
 
+import dagger.hilt.android.AndroidEntryPoint;
 import es.dmoral.toasty.Toasty;
 
-
+@AndroidEntryPoint
 public class ChangePasswordFragment extends Fragment {
     private FragmentChangePasswordBinding binding;
     private NavController navController;
-    @ActivityContext
-    @Inject
-    Context context;
-    @Inject
-    ViewModelFactory viewModelFactory;
     private ChangePasswordViewModel changePasswordViewModel;
     @Inject
     public PreferenceUtils preference;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -55,15 +44,6 @@ public class ChangePasswordFragment extends Fragment {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_change_password, container, false);
         View view = binding.getRoot();
         return view;
-    }
-
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        // dagger
-        ApplicationComponent applicationComponent = MainApplication.get(getActivity()).getApplicationComponent();
-        ChangePasswordFragmentComponent changePasswordFragmentComponent = applicationComponent.changePasswordFragmentComponentBuilder().getContext(getActivity()).build();
-        changePasswordFragmentComponent.inject(this);
     }
 
     @Override
@@ -86,7 +66,7 @@ public class ChangePasswordFragment extends Fragment {
         });
 
         //data binding to view
-        changePasswordViewModel = new ViewModelProvider(this, viewModelFactory).get(ChangePasswordViewModel.class);
+        changePasswordViewModel = new ViewModelProvider(this).get(ChangePasswordViewModel.class);
         binding.setLifecycleOwner(this);
         binding.setViewModel(changePasswordViewModel);
         binding.setFragment(this);
@@ -104,10 +84,10 @@ public class ChangePasswordFragment extends Fragment {
                 } else if (changePassUser.getNewPassword() == null || changePassUser.getNewPassword().isEmpty()) {
                     binding.txtLayoutNewPassword.setError(getResources().getString(R.string.password_mandatory));
                     changePasswordViewModel.enableButton.setValue(true);
-                }else if (changePasswordViewModel.passwordConfirm.getValue() == null || changePasswordViewModel.passwordConfirm.getValue().isEmpty()){
+                } else if (changePasswordViewModel.passwordConfirm.getValue() == null || changePasswordViewModel.passwordConfirm.getValue().isEmpty()) {
                     binding.txtLayoutConfirmPassword.setError(getResources().getString(R.string.password_mandatory));
                     changePasswordViewModel.enableButton.setValue(true);
-                }else if (changePassUser.isPasswordValid()) {
+                } else if (changePassUser.isPasswordValid()) {
                     binding.txtLayoutNewPassword.setError(getResources().getString(R.string.password_error));
                     changePasswordViewModel.enableButton.setValue(true);
                 } else if (!changePassUser.isPasswordMatch()) {
@@ -117,7 +97,7 @@ public class ChangePasswordFragment extends Fragment {
                 } else if (!changePassUser.isPasswordValid2()) {
                     binding.txtLayoutNewPassword.setError(getString(R.string.password_not_valid));
                     changePasswordViewModel.enableButton.setValue(true);
-                }else {
+                } else {
                     changePasswordViewModel.changePass();
                 }
             }
@@ -128,12 +108,12 @@ public class ChangePasswordFragment extends Fragment {
         changePasswordViewModel.getLChangePassNetworkResponse().observe(getViewLifecycleOwner(), new Observer<StructueMode>() {
             @Override
             public void onChanged(StructueMode changePassModel) {
-                Toasty.success(context , R.string.success_change , Toasty.LENGTH_LONG).show();
+                Toasty.success(getActivity(), R.string.success_change, Toasty.LENGTH_LONG).show();
                 preference.saveTokenUser("");
-                startActivity(new Intent(context, GuestActivity.class));
-                ((UserActivity) context).overridePendingTransition(R.anim.animate_diagonal_right_enter,
+                startActivity(new Intent(getActivity(), GuestActivity.class));
+                getActivity().overridePendingTransition(R.anim.animate_diagonal_right_enter,
                         R.anim.animate_diagonal_right_exit);
-                ((UserActivity) context).finish();
+                getActivity().finish();
             }
         });
 

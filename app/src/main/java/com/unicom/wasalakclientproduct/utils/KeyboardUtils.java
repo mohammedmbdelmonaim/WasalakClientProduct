@@ -5,16 +5,19 @@ import android.content.Context;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 
-
-import com.unicom.wasalakclientproduct.di.qualifier.ActivityContext;
-
 import javax.inject.Inject;
+import javax.inject.Singleton;
 
+import dagger.hilt.android.qualifiers.ActivityContext;
+import dagger.hilt.android.qualifiers.ApplicationContext;
+import dagger.hilt.android.scopes.ActivityScoped;
+
+@ActivityScoped
 public class KeyboardUtils {
     Context context;
 
     @Inject
-    public KeyboardUtils( @ActivityContext Context context) {
+    public KeyboardUtils(@ActivityContext Context context) {
         this.context = context;
     }
 

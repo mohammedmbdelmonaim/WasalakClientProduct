@@ -22,7 +22,7 @@
         android:id="@+id/coordinate"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.user.RequestsFragment">
+        tools:context=".ui.user.MarketsFragment">
 
         <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
@@ -31,11 +31,18 @@
 
             <com.google.android.material.appbar.MaterialToolbar
                 android:id="@+id/new_order_toolbar"
-                style="@style/Widget.MaterialComponents.Toolbar.Primary"
+                style="@style/MyToolbar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:paddingStart="@dimen/dimen_40dp"
+                app:titleTextAppearance="?attr/textAppearanceHeadline5"
                 app:title="@string/account"
                 app:titleTextColor="@color/black" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_0.1dp"
+                android:layout_gravity="bottom"
+                android:background="@color/whitesmoke"/>
         </com.google.android.material.appbar.AppBarLayout>
 
         <androidx.core.widget.NestedScrollView
@@ -68,13 +75,13 @@
 
                 <com.mikhaellopez.circularimageview.CircularImageView
                     android:id="@+id/profile_image"
+                    adjustViewBounds="true"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     android:layout_marginStart="@dimen/dimen_12dp"
                     android:layout_marginTop="@dimen/dimen_10dp"
-                    adjustViewBounds="true"
-                    android:src="@drawable/ic_wasellak_logo_color"
                     android:onClick="@{()->fragment.clickViewProfile()}"
+                    android:src="@drawable/ic_wasellak_logo_color"
                     app:civ_border_color="@color/gray"
                     app:civ_border_width="@dimen/dimen_0.5dp"
                     app:layout_constraintHeight_percent="0.1"
@@ -88,25 +95,25 @@
                     android:layout_height="0dp"
                     android:layout_marginStart="@dimen/dimen_10dp"
                     android:drawableEnd="@drawable/ic_arrow_forward"
+                    android:drawablePadding="@dimen/dimen_8dp"
                     android:fontFamily="@font/cairo_regular"
+                    android:gravity="center_vertical|start"
+                    android:onClick="@{()->fragment.clickViewProfile()}"
                     android:paddingEnd="@dimen/dimen_16dp"
                     android:shadowColor="@color/black"
                     android:shadowDx="2"
-                    tools:text="sdfsdfsdf sdfsdf"
-                    android:textAlignment="viewStart"
-                    android:onClick="@{()->fragment.clickViewProfile()}"
-                    android:gravity="center_vertical|start"
                     android:shadowDy="2"
                     android:shadowRadius="1"
-                    android:drawablePadding="@dimen/dimen_8dp"
+                    android:singleLine="true"
                     android:text="@{account.firstName + ` ` + account.lastName}"
+                    android:textAlignment="viewStart"
                     android:textColor="#442B2D"
                     android:textSize="@dimen/dimen_16sp"
-                    android:singleLine="true"
                     app:layout_constraintBottom_toBottomOf="@id/profile_image"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@id/profile_image"
-                    app:layout_constraintTop_toTopOf="@id/profile_image" />
+                    app:layout_constraintTop_toTopOf="@id/profile_image"
+                    tools:text="sdfsdfsdf sdfsdf" />
 
                 <View
                     android:id="@+id/name_line"

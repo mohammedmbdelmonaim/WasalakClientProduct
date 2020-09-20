@@ -2,15 +2,13 @@ package com.unicom.wasalakclientproduct.utils;
 
 import android.content.Context;
 
-
-import com.unicom.wasalakclientproduct.di.scope.FragmentScope;
-
 import java.text.DecimalFormat;
 import java.util.Locale;
 
 import javax.inject.Inject;
+import javax.inject.Singleton;
 
-@FragmentScope
+@Singleton
 public class PriceFormatter {
     @Inject
     PreferenceUtils preference;

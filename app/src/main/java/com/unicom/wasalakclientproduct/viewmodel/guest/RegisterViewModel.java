@@ -3,11 +3,12 @@ package com.unicom.wasalakclientproduct.viewmodel.guest;
 import android.content.Context;
 import android.widget.Toast;
 
+import androidx.hilt.Assisted;
+import androidx.hilt.lifecycle.ViewModelInject;
 import androidx.lifecycle.MutableLiveData;
+import androidx.lifecycle.SavedStateHandle;
 import androidx.lifecycle.ViewModel;
 
-import com.unicom.wasalakclientproduct.di.qualifier.ActivityContext;
-import com.unicom.wasalakclientproduct.di.scope.FragmentScope;
 import com.unicom.wasalakclientproduct.model.CityClass;
 import com.unicom.wasalakclientproduct.model.CityModel;
 import com.unicom.wasalakclientproduct.model.CountryClass;
@@ -24,8 +25,8 @@ import java.lang.annotation.Annotation;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.inject.Inject;
-
+import dagger.hilt.android.qualifiers.ActivityContext;
+import dagger.hilt.android.scopes.FragmentScoped;
 import es.dmoral.toasty.Toasty;
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
 import io.reactivex.rxjava3.disposables.CompositeDisposable;
@@ -36,7 +37,7 @@ import retrofit2.Converter;
 import retrofit2.HttpException;
 import retrofit2.Retrofit;
 
-@FragmentScope
+@FragmentScoped
 public class RegisterViewModel extends ViewModel {
     public MutableLiveData<String> emailAddress = new MutableLiveData<>();
     public MutableLiveData<String> password = new MutableLiveData<>();
@@ -54,17 +55,18 @@ public class RegisterViewModel extends ViewModel {
     private MutableLiveData<List<CityClass>> citiesMutableLiveData;
     private CompositeDisposable disposables = new CompositeDisposable();
     public MutableLiveData<Boolean> enableButton = new MutableLiveData<>();
-    RegisterUser user;
-    GuestRepository guestRepository;
-    Retrofit retrofit;
-    KeyboardUtils keyboardUtils;
-    PreferenceUtils preference;
-    @Inject
-    @ActivityContext
-    Context context;
+    private RegisterUser user;
+    private GuestRepository guestRepository;
+    private Retrofit retrofit;
+    private KeyboardUtils keyboardUtils;
+    private PreferenceUtils preference;
+    private SavedStateHandle savedStateHandle;
+    private Context context;
 
-    @Inject
-    public RegisterViewModel(GuestRepository guestRepository, KeyboardUtils keyboardUtils, PreferenceUtils preference, Retrofit retrofit) {
+    @ViewModelInject
+    public RegisterViewModel(@Assisted SavedStateHandle savedStateHandle  , @ActivityContext Context context , GuestRepository guestRepository, KeyboardUtils keyboardUtils, PreferenceUtils preference, Retrofit retrofit) {
+        this.savedStateHandle = savedStateHandle;
+        this.context = context;
         this.guestRepository = guestRepository;
         this.keyboardUtils = keyboardUtils;
         this.preference = preference;

@@ -3,22 +3,23 @@ package com.unicom.wasalakclientproduct.viewmodel.user;
 import android.content.Context;
 import android.widget.Toast;
 
+import androidx.hilt.Assisted;
+import androidx.hilt.lifecycle.ViewModelInject;
 import androidx.lifecycle.MutableLiveData;
+import androidx.lifecycle.SavedStateHandle;
 import androidx.lifecycle.ViewModel;
 
-import com.unicom.wasalakclientproduct.di.qualifier.ActivityContext;
 import com.unicom.wasalakclientproduct.model.StructueMode;
 import com.unicom.wasalakclientproduct.model.user.AccountModel;
 import com.unicom.wasalakclientproduct.model.user.LanguageClass;
-import com.unicom.wasalakclientproduct.model.user.LogoutModel;
 import com.unicom.wasalakclientproduct.repository.UserRepository;
 import com.unicom.wasalakclientproduct.utils.PreferenceUtils;
 
 import java.io.IOException;
 import java.lang.annotation.Annotation;
 
-import javax.inject.Inject;
-
+import dagger.hilt.android.qualifiers.ActivityContext;
+import dagger.hilt.android.scopes.FragmentScoped;
 import es.dmoral.toasty.Toasty;
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
 import io.reactivex.rxjava3.disposables.CompositeDisposable;
@@ -30,6 +31,7 @@ import retrofit2.Converter;
 import retrofit2.HttpException;
 import retrofit2.Retrofit;
 
+@FragmentScoped
 public class MyAccountViewModel extends ViewModel {
     public MutableLiveData<Boolean> isLoading = new MutableLiveData<>();
     private MutableLiveData<AccountModel> accountMutableLiveData;
@@ -38,15 +40,16 @@ public class MyAccountViewModel extends ViewModel {
     public MutableLiveData<Boolean> notification = new MutableLiveData<>();
     public PublishSubject publishSubject = PublishSubject.create();
     public MutableLiveData<String> langLiveData;
-    Retrofit retrofit;
-    @Inject
-    @ActivityContext
-    Context context;
-    UserRepository userRepository;
-    PreferenceUtils preference;
+    private Retrofit retrofit;
+    private Context context;
+    private SavedStateHandle savedStateHandle;
+    private UserRepository userRepository;
+    private PreferenceUtils preference;
 
-    @Inject
-    public MyAccountViewModel(UserRepository userRepository, PreferenceUtils preference , Retrofit retrofit) {
+    @ViewModelInject
+    public MyAccountViewModel(@Assisted SavedStateHandle savedStateHandle  , @ActivityContext Context context , UserRepository userRepository, PreferenceUtils preference , Retrofit retrofit) {
+        this.savedStateHandle = savedStateHandle;
+        this.context = context;
         this.userRepository = userRepository;
         this.preference = preference;
         this.retrofit = retrofit;

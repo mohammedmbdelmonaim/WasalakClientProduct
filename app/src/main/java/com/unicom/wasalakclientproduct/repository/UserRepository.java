@@ -1,15 +1,11 @@
 package com.unicom.wasalakclientproduct.repository;
 
-import com.unicom.wasalakclientproduct.di.scope.FragmentScope;
 import com.unicom.wasalakclientproduct.model.CityModel;
 import com.unicom.wasalakclientproduct.model.CountryModel;
 import com.unicom.wasalakclientproduct.model.StructueMode;
-import com.unicom.wasalakclientproduct.model.guest.RegisterModel;
-import com.unicom.wasalakclientproduct.model.guest.RegisterUser;
 import com.unicom.wasalakclientproduct.model.user.AccountModel;
 import com.unicom.wasalakclientproduct.model.user.ChangePassUser;
 import com.unicom.wasalakclientproduct.model.user.LanguageClass;
-import com.unicom.wasalakclientproduct.model.user.LogoutModel;
 import com.unicom.wasalakclientproduct.model.user.UpdateProfileDTO;
 import com.unicom.wasalakclientproduct.model.user.UpdateProfileModel;
 import com.unicom.wasalakclientproduct.model.user.UploadImageModel;
@@ -17,11 +13,11 @@ import com.unicom.wasalakclientproduct.remote.UserService;
 
 import javax.inject.Inject;
 
-import io.reactivex.rxjava3.core.Observable;
+import dagger.hilt.android.scopes.ActivityRetainedScoped;
 import io.reactivex.rxjava3.core.Single;
 import okhttp3.MultipartBody;
 
-@FragmentScope
+@ActivityRetainedScoped
 public class UserRepository {
 
     private UserService userService;

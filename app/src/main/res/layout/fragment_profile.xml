@@ -26,12 +26,17 @@
 
             <com.google.android.material.appbar.MaterialToolbar
                 android:id="@+id/changePass_toolbar"
-                style="@style/Widget.MaterialComponents.Toolbar.Primary"
+                style="@style/MyToolbar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingStart="@dimen/dimen_40dp"
                 app:title="@{account.firstName + ` ` + account.lastName}"
                 app:titleTextColor="@color/black" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_0.1dp"
+                android:layout_gravity="bottom"
+                android:background="@color/whitesmoke"/>
         </com.google.android.material.appbar.AppBarLayout>
 
         <androidx.core.widget.NestedScrollView

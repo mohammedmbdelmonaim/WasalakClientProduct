@@ -38,5 +38,4 @@ public interface GuestService {
 
     @GET("services/app/City/GetAllForDropDownListWithCountryId")
     Single<CityModel> citiesRequest(@Query("CountryId") int countryId);
-
 }

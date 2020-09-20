@@ -13,16 +13,16 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
-import com.unicom.wasalakclientproduct.MainApplication;
 import com.unicom.wasalakclientproduct.R;
 import com.unicom.wasalakclientproduct.databinding.FragmentProfileBinding;
-import com.unicom.wasalakclientproduct.di.component.ApplicationComponent;
-import com.unicom.wasalakclientproduct.di.component.ProfileFragmentComponent;
 import com.unicom.wasalakclientproduct.model.GlideApp;
 import com.unicom.wasalakclientproduct.utils.PreferenceUtils;
 
 import javax.inject.Inject;
 
+import dagger.hilt.android.AndroidEntryPoint;
+
+@AndroidEntryPoint
 public class ProfileFragment extends Fragment {
 
     FragmentProfileBinding binding;
@@ -30,14 +30,7 @@ public class ProfileFragment extends Fragment {
     @Inject
     public PreferenceUtils preference;
     ProfileFragmentArgs args;
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        // dagger
-        ApplicationComponent applicationComponent = MainApplication.get(getActivity()).getApplicationComponent();
-        ProfileFragmentComponent profileFragmentComponent = applicationComponent.profileFragmentComponentBuilder().build();
-        profileFragmentComponent.inject(this);
-    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

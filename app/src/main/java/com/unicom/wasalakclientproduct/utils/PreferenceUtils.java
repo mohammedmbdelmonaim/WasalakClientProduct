@@ -2,12 +2,10 @@ package com.unicom.wasalakclientproduct.utils;
 
 import android.content.SharedPreferences;
 
-
-import com.unicom.wasalakclientproduct.di.scope.ApplicationScope;
-
 import javax.inject.Inject;
+import javax.inject.Singleton;
 
-@ApplicationScope
+@Singleton
 public class PreferenceUtils {
     SharedPreferences preference;
     @Inject

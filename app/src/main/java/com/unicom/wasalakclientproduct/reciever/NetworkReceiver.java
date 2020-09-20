@@ -9,6 +9,9 @@ import com.unicom.wasalakclientproduct.utils.NetworkUtil;
 
 import javax.inject.Inject;
 
+import dagger.hilt.android.AndroidEntryPoint;
+
+@AndroidEntryPoint
 public class NetworkReceiver extends BroadcastReceiver {
     NetworkUtil networkUtil;
 

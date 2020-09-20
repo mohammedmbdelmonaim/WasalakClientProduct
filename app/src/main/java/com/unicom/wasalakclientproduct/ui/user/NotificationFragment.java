@@ -1,39 +1,20 @@
 package com.unicom.wasalakclientproduct.ui.user;
 
-import android.content.Context;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import androidx.activity.OnBackPressedCallback;
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.recyclerview.widget.LinearLayoutManager;
 
-import com.google.android.material.snackbar.Snackbar;
-import com.unicom.wasalakclientproduct.MainApplication;
 import com.unicom.wasalakclientproduct.R;
 import com.unicom.wasalakclientproduct.databinding.FragmentNotificationBinding;
-import com.unicom.wasalakclientproduct.di.component.ApplicationComponent;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.concurrent.TimeUnit;
+import dagger.hilt.android.AndroidEntryPoint;
 
-import javax.inject.Inject;
-
-import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
-import io.reactivex.rxjava3.disposables.Disposable;
-import io.reactivex.rxjava3.subjects.PublishSubject;
-
+@AndroidEntryPoint
 public class NotificationFragment extends Fragment {
     private FragmentNotificationBinding binding;
 //    private NavController navController;

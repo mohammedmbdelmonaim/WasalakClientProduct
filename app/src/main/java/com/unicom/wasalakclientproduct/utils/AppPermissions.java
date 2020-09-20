@@ -10,14 +10,9 @@ import android.provider.Settings;
 
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
-import androidx.fragment.app.Fragment;
 
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.unicom.wasalakclientproduct.R;
-import com.unicom.wasalakclientproduct.di.qualifier.ActivityContext;
-import com.unicom.wasalakclientproduct.di.scope.ActivityScope;
-import com.unicom.wasalakclientproduct.di.scope.FragmentScope;
-
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -26,7 +21,10 @@ import java.util.Map;
 
 import javax.inject.Inject;
 
-@ActivityScope
+import dagger.hilt.android.qualifiers.ActivityContext;
+import dagger.hilt.android.scopes.ActivityScoped;
+
+@ActivityScoped
 public class AppPermissions {
     private static final int PERMISSION_REQUEST_CODE = 1001;
     Context context;

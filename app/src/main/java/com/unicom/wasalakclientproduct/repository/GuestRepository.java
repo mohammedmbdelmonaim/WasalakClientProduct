@@ -1,8 +1,6 @@
 package com.unicom.wasalakclientproduct.repository;
 
 
-
-import com.unicom.wasalakclientproduct.di.scope.FragmentScope;
 import com.unicom.wasalakclientproduct.model.CityModel;
 import com.unicom.wasalakclientproduct.model.CountryModel;
 import com.unicom.wasalakclientproduct.model.guest.ForgetPassUSer;
@@ -15,10 +13,10 @@ import com.unicom.wasalakclientproduct.remote.GuestService;
 
 import javax.inject.Inject;
 
-import io.reactivex.rxjava3.core.Observable;
+import dagger.hilt.android.scopes.ActivityRetainedScoped;
 import io.reactivex.rxjava3.core.Single;
 
-@FragmentScope
+@ActivityRetainedScoped
 public class GuestRepository {
 
     private GuestService guestService;
@@ -31,6 +29,10 @@ public class GuestRepository {
     public Single<LoginModel> getLoginRequest(LoginUser user) {
         return guestService.loginRequest(user);
     }
+    public Single<LoginModel> getLoginExternalRequest(String authProvider , String providerKey , String providerAccessCode) {
+        return guestService.loginExternalRequest(authProvider , providerKey , providerAccessCode);
+    }
+
 
     public Single<RegisterModel> getRegisterRequest(RegisterUser user) {
         return guestService.registerRequest(user);

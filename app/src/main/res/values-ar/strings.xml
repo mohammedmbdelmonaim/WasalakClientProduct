@@ -406,5 +406,7 @@
     <string name="register_success">لقد تم انشاء الحساب بنجاح من فضلك افحص ايميلك</string>
     <string name="success_change">تم تغيير كلمة السر بنجاح</string>
     <string name="sucess_edit">تم تعديل البروفايل بنجاح</string>
+    <string name="search_want">ابحث عما تريد</string>
+    <string name="what_need">ماذا تريد ان تطلب؟</string>
 </resources>
 

@@ -125,13 +125,6 @@
                     android:background="@drawable/social_bg_face"
                     android:elevation="@dimen/dimen_4dp"
                     android:onClick="@{()->loginViewModel.onClickFaceBook()}">
-<!--                    <com.facebook.login.widget.LoginButton-->
-<!--                        android:id="@+id/login_button"-->
-<!--                        android:layout_width="wrap_content"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:layout_gravity="center_horizontal"-->
-<!--                        android:layout_marginTop="30dp"-->
-<!--                        android:layout_marginBottom="30dp" />-->
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -245,7 +238,7 @@
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/constraintLayout"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="0dp"
                 android:scaleX="1"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -253,6 +246,7 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.1"
                 app:layout_constraintWidth_percent="0.9"
+                app:layout_constraintHeight_percent="0.15"
                 app:srcCompat="@drawable/ic_wasellak_logo_color" />
 
             <com.google.android.material.textfield.TextInputLayout

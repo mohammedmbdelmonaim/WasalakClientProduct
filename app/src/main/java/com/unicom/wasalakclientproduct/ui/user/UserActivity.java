@@ -1,11 +1,9 @@
 package com.unicom.wasalakclientproduct.ui.user;
 
-import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.IntentSender;
 import android.location.Location;
 import android.os.Bundle;
-import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.navigation.NavController;
@@ -27,23 +25,19 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
-import com.unicom.wasalakclientproduct.MainApplication;
 import com.unicom.wasalakclientproduct.R;
 import com.unicom.wasalakclientproduct.databinding.ActivityUserBinding;
-import com.unicom.wasalakclientproduct.di.component.ApplicationComponent;
-import com.unicom.wasalakclientproduct.di.component.BaseActivityComponent;
-import com.unicom.wasalakclientproduct.di.component.UserActivityComponent;
 import com.unicom.wasalakclientproduct.ui.BaseActivity;
 import com.unicom.wasalakclientproduct.utils.AppPermissions;
 
 import javax.inject.Inject;
 
+import dagger.hilt.android.AndroidEntryPoint;
 
+@AndroidEntryPoint
 public class UserActivity extends BaseActivity {
     ActivityUserBinding binding;
-    private static final String TAG = "UserActivity";
     public static int id = -1;
-    UserActivityComponent userActivityComponent;
     @Inject
     AppPermissions appPermissions;
     private FusedLocationProviderClient mFusedLocationProviderClient;
@@ -52,11 +46,7 @@ public class UserActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Log.d(TAG, "mohammed onCreate: ");
 
-        ApplicationComponent applicationComponent = MainApplication.get(this).getApplicationComponent();
-        userActivityComponent = applicationComponent.userActivityComponent().getContext(this).listPermission(new String[]{Manifest.permission.ACCESS_FINE_LOCATION}).build();
-        userActivityComponent.inject(this);
         mFusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
         if (appPermissions.checkAndRequestPermission()) {
             setupLocation();
@@ -108,8 +98,6 @@ public class UserActivity extends BaseActivity {
                         if (task.isSuccessful()) {
                             mLastKnownLocation = task.getResult();
                             if (mLastKnownLocation != null) {
-                                Log.d(TAG, "onComplete: ");
-
 
 //                                requestsViewModel.lat.setValue(String.valueOf(mLastKnownLocation.getLatitude()));
 //                                requestsViewModel.lng.setValue(String.valueOf(mLastKnownLocation.getLongitude()));
@@ -130,7 +118,6 @@ public class UserActivity extends BaseActivity {
                                         }
                                         mLastKnownLocation = locationResult.getLastLocation();
                                         if (mLastKnownLocation != null) {
-                                            Log.d(TAG, "onLocationResult: ");
 //                                            requestsViewModel.lat.setValue(String.valueOf(mLastKnownLocation.getLatitude()));
 //                                            requestsViewModel.lng.setValue(String.valueOf(mLastKnownLocation.getLongitude()));
 //                                            if (activityClick != null) {

@@ -4,18 +4,20 @@ import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 
-
 import com.unicom.wasalakclientproduct.R;
-import com.unicom.wasalakclientproduct.di.qualifier.ActivityContext;
 
 import javax.inject.Inject;
+import javax.inject.Singleton;
 
+import dagger.hilt.android.qualifiers.ActivityContext;
+import dagger.hilt.android.qualifiers.ApplicationContext;
 
+@Singleton
 public class NetworkUtil {
     Context context;
 
     @Inject
-    public NetworkUtil(@ActivityContext Context context) {
+    public NetworkUtil(@ApplicationContext Context context) {
         this.context = context;
     }
 

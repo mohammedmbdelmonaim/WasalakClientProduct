@@ -29,8 +29,8 @@
         android:name="com.unicom.wasalakclientproduct.ui.user.OrderHistoryFragment"
         android:label="OrderHistoryFragment" />
     <fragment
-        android:id="@+id/requestsFragment"
-        android:name="com.unicom.wasalakclientproduct.ui.user.RequestsFragment"
+        android:id="@+id/marketsFragment"
+        android:name="com.unicom.wasalakclientproduct.ui.user.MarketsFragment"
         android:label="RequestsFragment" />
     <fragment
         android:id="@+id/profileFragment"

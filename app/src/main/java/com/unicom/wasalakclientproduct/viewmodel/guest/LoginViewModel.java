@@ -4,14 +4,15 @@ import android.content.Context;
 import android.util.Log;
 import android.widget.Toast;
 
+import androidx.hilt.Assisted;
+import androidx.hilt.lifecycle.ViewModelInject;
 import androidx.lifecycle.MutableLiveData;
+import androidx.lifecycle.SavedStateHandle;
 import androidx.lifecycle.ViewModel;
 
 import com.ahmedadel.socialmediasignup.SocialMediaSignUp;
 import com.ahmedadel.socialmediasignup.callback.SocialMediaSignUpCallback;
 import com.ahmedadel.socialmediasignup.model.SocialMediaUser;
-import com.unicom.wasalakclientproduct.di.qualifier.ActivityContext;
-import com.unicom.wasalakclientproduct.di.scope.FragmentScope;
 import com.unicom.wasalakclientproduct.model.guest.LoginModel;
 import com.unicom.wasalakclientproduct.model.guest.LoginUser;
 import com.unicom.wasalakclientproduct.repository.GuestRepository;
@@ -25,8 +26,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import javax.inject.Inject;
-
+import dagger.hilt.android.qualifiers.ActivityContext;
+import dagger.hilt.android.scopes.FragmentScoped;
 import es.dmoral.toasty.Toasty;
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
 import io.reactivex.rxjava3.disposables.CompositeDisposable;
@@ -37,7 +38,7 @@ import retrofit2.HttpException;
 import retrofit2.Retrofit;
 
 
-@FragmentScope
+@FragmentScoped
 public class LoginViewModel extends ViewModel implements SocialMediaSignUpCallback {
     private SingleLiveData<LoginUser> userMutableLiveData;
     private SingleLiveData<LoginModel> loginMutableLiveData;
@@ -45,20 +46,19 @@ public class LoginViewModel extends ViewModel implements SocialMediaSignUpCallba
     public MutableLiveData<String> emailAddress = new MutableLiveData<>();
     public MutableLiveData<String> password = new MutableLiveData<>();
     public MutableLiveData<Boolean> enableButton = new MutableLiveData<>();
-    Retrofit retrofit;
-
-    @Inject
-    @ActivityContext
+    private Retrofit retrofit;
     Context context;
-
+    private SavedStateHandle savedStateHandle;
     private CompositeDisposable disposables = new CompositeDisposable();
-    GuestRepository guestRepository;
-    PreferenceUtils preference;
-    KeyboardUtils keyboardUtils;
-    LoginUser loginUser;
+    private GuestRepository guestRepository;
+    private PreferenceUtils preference;
+    private KeyboardUtils keyboardUtils;
+    private LoginUser loginUser;
 
-    @Inject
-    public LoginViewModel(GuestRepository guestRepository, PreferenceUtils preference, KeyboardUtils keyboardUtils, Retrofit retrofit) {
+    @ViewModelInject
+    public LoginViewModel(@Assisted SavedStateHandle savedStateHandle  , @ActivityContext Context context , GuestRepository guestRepository, PreferenceUtils preference, KeyboardUtils keyboardUtils, Retrofit retrofit) {
+        this.savedStateHandle = savedStateHandle;
+        this.context = context;
         this.guestRepository = guestRepository;
         this.preference = preference;
         this.keyboardUtils = keyboardUtils;
@@ -66,9 +66,8 @@ public class LoginViewModel extends ViewModel implements SocialMediaSignUpCallba
     }
 
     public void onClickFaceBook() {
-        List<String> a = new ArrayList<>();
-        a.add("facebook");
-        SocialMediaSignUp.getInstance().connectTo(SocialMediaSignUp.SocialMediaType.FACEBOOK, Arrays.asList("public_profile"), this);
+
+        SocialMediaSignUp.getInstance().connectTo(SocialMediaSignUp.SocialMediaType.FACEBOOK, Arrays.asList("email"), this);
 
     }
 
@@ -141,6 +140,8 @@ public class LoginViewModel extends ViewModel implements SocialMediaSignUpCallba
 
     @Override
     public void onSuccess(SocialMediaSignUp.SocialMediaType socialMediaType, SocialMediaUser socialMediaUser) {
+        isLoading.setValue(true);
+        disposables.add(guestRepository.getLoginExternalRequest(socialMediaType.name() , socialMediaUser.getUserId() , socialMediaUser.getAccessToken()).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(this::handleResults, this::handleError));
         Log.d("TAG", "onSuccess: ");
     }
 

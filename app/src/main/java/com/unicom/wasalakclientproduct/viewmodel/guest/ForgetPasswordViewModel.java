@@ -3,11 +3,12 @@ package com.unicom.wasalakclientproduct.viewmodel.guest;
 import android.content.Context;
 import android.widget.Toast;
 
+import androidx.hilt.Assisted;
+import androidx.hilt.lifecycle.ViewModelInject;
 import androidx.lifecycle.MutableLiveData;
+import androidx.lifecycle.SavedStateHandle;
 import androidx.lifecycle.ViewModel;
 
-import com.unicom.wasalakclientproduct.di.qualifier.ActivityContext;
-import com.unicom.wasalakclientproduct.di.scope.FragmentScope;
 import com.unicom.wasalakclientproduct.model.guest.ForgetPassUSer;
 import com.unicom.wasalakclientproduct.model.guest.ForgetPasswordModel;
 import com.unicom.wasalakclientproduct.repository.GuestRepository;
@@ -17,8 +18,8 @@ import com.unicom.wasalakclientproduct.utils.SingleLiveData;
 import java.io.IOException;
 import java.lang.annotation.Annotation;
 
-import javax.inject.Inject;
-
+import dagger.hilt.android.qualifiers.ActivityContext;
+import dagger.hilt.android.scopes.FragmentScoped;
 import es.dmoral.toasty.Toasty;
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
 import io.reactivex.rxjava3.disposables.Disposable;
@@ -28,24 +29,25 @@ import retrofit2.Converter;
 import retrofit2.HttpException;
 import retrofit2.Retrofit;
 
-@FragmentScope
+@FragmentScoped
 public class ForgetPasswordViewModel extends ViewModel {
     public MutableLiveData<String> email = new MutableLiveData<>();
     private Disposable disposable;
     private SingleLiveData<ForgetPassUSer> userMutableLiveData;
     private SingleLiveData<ForgetPasswordModel> forgetMutableLiveData;
     public MutableLiveData<Boolean> enableButton = new MutableLiveData<>();
-    ForgetPassUSer forgetPassUSer;
+    private  ForgetPassUSer forgetPassUSer;
     public MutableLiveData<Boolean> isLoading = new MutableLiveData<>();
-    KeyboardUtils keyboardUtils;
-    GuestRepository guestRepository;
-    @Inject
-    @ActivityContext
-    Context context;
-    Retrofit retrofit;
+    private  KeyboardUtils keyboardUtils;
+    private  GuestRepository guestRepository;
+    private  Context context;
+    private SavedStateHandle savedStateHandle;
+    private Retrofit retrofit;
 
-    @Inject
-    public ForgetPasswordViewModel(KeyboardUtils keyboardUtils, GuestRepository guestRepository, Retrofit retrofit) {
+    @ViewModelInject
+    public ForgetPasswordViewModel(@Assisted SavedStateHandle savedStateHandle  , @ActivityContext Context context , KeyboardUtils keyboardUtils, GuestRepository guestRepository, Retrofit retrofit) {
+        this.savedStateHandle = savedStateHandle;
+        this.context = context;
         this.keyboardUtils = keyboardUtils;
         this.guestRepository = guestRepository;
         this.retrofit = retrofit;

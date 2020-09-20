@@ -1,7 +1,5 @@
 package com.unicom.wasalakclientproduct.ui.user;
 
-import android.app.Activity;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -20,48 +18,30 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable;
 
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.Registry;
-import com.bumptech.glide.annotation.GlideModule;
-import com.bumptech.glide.integration.okhttp3.OkHttpUrlLoader;
-import com.bumptech.glide.load.model.GlideUrl;
-import com.bumptech.glide.module.LibraryGlideModule;
-import com.bumptech.glide.request.RequestOptions;
-import com.bumptech.glide.request.target.Target;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
-import com.unicom.wasalakclientproduct.MainApplication;
 import com.unicom.wasalakclientproduct.R;
 import com.unicom.wasalakclientproduct.databinding.FragmentMyAccountBinding;
-import com.unicom.wasalakclientproduct.di.component.ApplicationComponent;
-import com.unicom.wasalakclientproduct.di.component.MyAccountFragmentComponent;
-import com.unicom.wasalakclientproduct.di.qualifier.ActivityContext;
 import com.unicom.wasalakclientproduct.model.GlideApp;
 import com.unicom.wasalakclientproduct.model.StructueMode;
 import com.unicom.wasalakclientproduct.model.user.AccountModel;
 import com.unicom.wasalakclientproduct.ui.guest.GuestActivity;
 import com.unicom.wasalakclientproduct.utils.ChangeLang;
 import com.unicom.wasalakclientproduct.utils.PreferenceUtils;
-import com.unicom.wasalakclientproduct.viewmodel.ViewModelFactory;
 import com.unicom.wasalakclientproduct.viewmodel.user.MyAccountViewModel;
 
-import java.io.InputStream;
 import java.util.concurrent.TimeUnit;
 
 import javax.inject.Inject;
 
+import dagger.hilt.android.AndroidEntryPoint;
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
 import io.reactivex.rxjava3.disposables.Disposable;
 import io.reactivex.rxjava3.subjects.PublishSubject;
-import okhttp3.OkHttpClient;
 
+@AndroidEntryPoint
 public class MyAccountFragment extends Fragment {
     private FragmentMyAccountBinding binding;
     private NavController navController;
-    @ActivityContext
-    @Inject
-    Context context;
-    @Inject
-    ViewModelFactory viewModelFactory;
     private MyAccountViewModel myAccountViewModel;
 
     @Inject
@@ -74,13 +54,8 @@ public class MyAccountFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // dagger
-        ApplicationComponent applicationComponent = MainApplication.get(getActivity()).getApplicationComponent();
-        MyAccountFragmentComponent myAccountFragmentComponent = applicationComponent.myAccountFragmentComponentBuilder().getContext(getActivity()).build();
-        myAccountFragmentComponent.inject(this);
-
         //data binding to view
-        myAccountViewModel = new ViewModelProvider(this, viewModelFactory).get(MyAccountViewModel.class);
+        myAccountViewModel = new ViewModelProvider(this).get(MyAccountViewModel.class);
 
     }
 
@@ -99,7 +74,7 @@ public class MyAccountFragment extends Fragment {
         if (navController == null) {
             navController = Navigation.findNavController(view);
         }
-        ((UserActivity) context).binding.bottomNavigation.setVisibility(View.VISIBLE);
+        ((UserActivity) getActivity()).binding.bottomNavigation.setVisibility(View.VISIBLE);
 
         //handle back button
         observeBackButton();
@@ -155,17 +130,17 @@ public class MyAccountFragment extends Fragment {
     }
 
     public void onClickLogout() {
-        new MaterialAlertDialogBuilder(context, R.style.AlertDialogTheme)
+        new MaterialAlertDialogBuilder(getActivity(), R.style.AlertDialogTheme)
                 .setTitle("")
                 .setMessage(R.string.sure_logout)
                 .setNegativeButton(R.string.logout, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         preference.saveTokenUser("");
-                        startActivity(new Intent(context, GuestActivity.class));
-                        ((UserActivity) context).overridePendingTransition(R.anim.animate_diagonal_right_enter,
+                        startActivity(new Intent(getActivity(), GuestActivity.class));
+                        getActivity().overridePendingTransition(R.anim.animate_diagonal_right_enter,
                                 R.anim.animate_diagonal_right_exit);
-                        ((UserActivity) context).finish();
+                        getActivity().finish();
                     }
                 })
                 .setPositiveButton(R.string.cancel, new DialogInterface.OnClickListener() {
@@ -188,7 +163,7 @@ public class MyAccountFragment extends Fragment {
 
 
     public void onClickLanguage() {
-        new MaterialAlertDialogBuilder(context, R.style.AlertDialogTheme)
+        new MaterialAlertDialogBuilder(getActivity(), R.style.AlertDialogTheme)
                 .setTitle("")
                 .setMessage(R.string.choose_lang)
                 .setNegativeButton(R.string.arabic, new DialogInterface.OnClickListener() {
@@ -209,11 +184,11 @@ public class MyAccountFragment extends Fragment {
         myAccountViewModel.getLangMutableLiveData().observe(getViewLifecycleOwner(), new Observer<StructueMode>() {
             @Override
             public void onChanged(StructueMode structueMode) {
-                ChangeLang.setNewLocale(context, myAccountViewModel.getLang().getValue());
-                startActivity(new Intent(context, UserActivity.class));
-                ((Activity) context).overridePendingTransition(R.anim.animate_zoom_enter,
+                ChangeLang.setNewLocale(getActivity(), myAccountViewModel.getLang().getValue());
+                startActivity(new Intent(getActivity(), UserActivity.class));
+                getActivity().overridePendingTransition(R.anim.animate_zoom_enter,
                         R.anim.animate_zoom_exit);
-                ((UserActivity) context).finish();
+                getActivity().finish();
             }
         });
 

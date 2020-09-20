@@ -405,6 +405,8 @@ The ration goods that the house needs </string>
     <string name="register_success">The account has been created successfully. Please check your email address</string>
     <string name="success_change">password changed successfully</string>
     <string name="sucess_edit">edit profile successfully</string>
+    <string name="search_want">ابحث عما تريد</string>
+    <string name="what_need">ماذا تريد ان تطلب؟</string>
 
 </resources>
 

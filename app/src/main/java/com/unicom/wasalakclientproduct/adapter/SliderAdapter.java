@@ -6,7 +6,6 @@ import android.view.ViewGroup;
 
 import androidx.databinding.DataBindingUtil;
 
-
 import com.smarteist.autoimageslider.SliderViewAdapter;
 import com.unicom.wasalakclientproduct.R;
 import com.unicom.wasalakclientproduct.databinding.ImageSliderLayoutItemBinding;
@@ -67,6 +66,7 @@ public class SliderAdapter extends
 
     class SliderAdapterVH extends SliderViewAdapter.ViewHolder {
         private final ImageSliderLayoutItemBinding binding;
+
         public SliderAdapterVH(final ImageSliderLayoutItemBinding binding) {
             super(binding.getRoot());
             this.binding = binding;

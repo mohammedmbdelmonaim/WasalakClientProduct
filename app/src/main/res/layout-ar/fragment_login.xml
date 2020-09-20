@@ -125,12 +125,11 @@
                     android:background="@drawable/social_bg_face"
                     android:elevation="@dimen/dimen_4dp"
                     android:onClick="@{()->loginViewModel.onClickFaceBook()}">
-
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        app:srcCompat="@drawable/ic_icons8_facebook_f" />
+                        android:src="@drawable/ic_icons8_facebook_f" />
                 </FrameLayout>
 
                 <FrameLayout
@@ -147,7 +146,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        app:srcCompat="@drawable/ic_icons8_google" />
+                        android:src="@drawable/ic_icons8_google" />
                 </FrameLayout>
 
                 <FrameLayout
@@ -162,7 +161,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        app:srcCompat="@drawable/ic_instagram_sketched" />
+                        android:src="@drawable/ic_instagram_sketched" />
                 </FrameLayout>
 
             </androidx.appcompat.widget.LinearLayoutCompat>
@@ -239,7 +238,7 @@
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/constraintLayout"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="0dp"
                 android:scaleX="1"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -247,6 +246,7 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.1"
                 app:layout_constraintWidth_percent="0.9"
+                app:layout_constraintHeight_percent="0.15"
                 app:srcCompat="@drawable/ic_wasellak_logo_color" />
 
             <com.google.android.material.textfield.TextInputLayout
@@ -276,7 +276,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:fontFamily="@font/cairo_bold"
-                    android:hint="@string/user_email_hint"
+                    android:hint="@string/email"
                     android:inputType="textEmailAddress"
                     android:paddingStart="@dimen/dimen_16dp"
                     android:paddingTop="@dimen/dimen_8dp"
@@ -321,11 +321,11 @@
                     android:inputType="textPassword"
                     android:paddingStart="@dimen/dimen_16dp"
                     android:paddingTop="@dimen/dimen_8dp"
+                    android:textAlignment="viewStart"
                     android:paddingEnd="@dimen/dimen_16dp"
                     android:paddingBottom="@dimen/dimen_8dp"
                     android:singleLine="true"
                     android:text="@={loginViewModel.password}"
-                    android:textAlignment="viewStart"
                     android:textColor="@color/colorAccent"
                     android:textColorHint="@color/gray"
                     android:textSize="@dimen/dimen_16sp" />
